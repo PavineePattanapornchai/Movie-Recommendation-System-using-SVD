@@ -16,16 +16,18 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Setup Miniconda
+    - name: Setup Miniconda with Environment
       uses: conda-incubator/setup-miniconda@v2
       with:
         auto-activate-base: false
         python-version: 3.10
+        environment-file: environment.yml
+        activate-environment: movie-env  
+        use-mamba: true  
 
-    - name: Create Conda Environment
+    - name: Verify Environment and Packages
       run: |
-        conda env create -f environment.yml || conda env update -f environment.yml
+        conda run -n movie-env python -c "import numpy, pandas, sklearn, surprise; print('All packages loaded successfully!')"
 
-    - name: Activate Conda Environment and Run Training
-      run: |
-        conda run -n movie-env python src/recommendation_system.py
+    - name: Run Training Script
+      run: conda run -n movie-env python src/recommendation_system.py
