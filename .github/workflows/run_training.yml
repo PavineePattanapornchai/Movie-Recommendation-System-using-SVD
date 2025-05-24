@@ -13,21 +13,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set up Miniconda
-      uses: conda-incubator/setup-miniconda@v2
+    - name: Set up Micromamba
+      uses: mamba-org/setup-micromamba@v1
       with:
-        miniforge-variant: Mambaforge
-        python-version: "3.10"
         environment-file: environment.yml
-        activate-environment: movie-env
-        auto-update-conda: true
-        use-mamba: true
+        environment-name: movie-env
+        cache-downloads: true
 
     - name: Verify Conda Environment
-      run: conda info --envs
-
-    - name: Install additional dependencies (if needed)
-      run: conda list
+      run: micromamba list
 
     - name: Run Training Script
-      run: python src/recommendation_system.py
+      run: micromamba run -n movie-env python src/recommendation_system.py
