@@ -1,13 +1,13 @@
 # Movie Recommendation System using SVD
 
-A collaborative filtering-based recommendation system built using the MovieLens dataset. This system applies Singular Value Decomposition (SVD) for generating personalized movie recommendations.
+This project demonstrates a collaborative filtering-based recommendation system leveraging the MovieLens dataset. The system utilizes Singular Value Decomposition (SVD) to generate personalized movie recommendations and is designed for performance, scalability, and maintainability.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
-.
+Movie-Recommendation-SVD
 ├── .github/workflows
 │   └── run_training.yml         # CI/CD pipeline configuration
 ├── data
@@ -23,45 +23,45 @@ A collaborative filtering-based recommendation system built using the MovieLens 
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-* **Collaborative Filtering**: Personalized recommendations using user-movie interactions.
-* **SVD Model**: Efficient and scalable latent factor model.
-* **Validation**: Performance measured by RMSE on validation data.
-* **CI/CD Integration**: Automated testing and deployment via GitHub Actions with Micromamba or Conda.
-* **Modular Code**: Clean architecture for easy maintenance and extensibility.
+* **Collaborative Filtering**: Generates personalized movie recommendations based on user-movie interaction data.
+* **SVD Model Implementation**: Efficient and scalable approach to collaborative filtering using latent factor models.
+* **Performance Validation**: Model accuracy assessed using RMSE on validation data.
+* **CI/CD Integration**: Automated workflows with GitHub Actions and Micromamba/Conda for environment management and testing.
+* **Modular and Maintainable Codebase**: Clean architecture enabling easy updates and enhancements.
 
 ---
 
-## 📈 Workflow Overview
+## Workflow Overview
 
 ![Flow Diagram](images/Flow%20Diagram.png)
 
 ---
 
-## 🏗️ Setup Instructions
+## Setup Instructions
 
-### 1️⃣ Clone Repository
+### Clone Repository
 
 ```bash
 git clone https://github.com/PavineePattanapornchai/Movie-Recommendation-System-using-SVD.git
 cd Movie-Recommendation-System-using-SVD
 ```
 
-### 2️⃣ Setup Conda Environment
+### Set Up Conda Environment
 
 ```bash
 conda env create -f environment.yml
 conda activate movie-env
 ```
 
-### 3️⃣ Install Dependencies (Optional: if using pip)
+### Install Dependencies (Optional)
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Train Model Locally
+### Run the Training Script Locally
 
 ```bash
 python src/recommendation_system.py
@@ -69,27 +69,27 @@ python src/recommendation_system.py
 
 ---
 
-## 🔁 CI/CD with GitHub Actions
+## Continuous Integration and Deployment (CI/CD)
 
-* **Micromamba/Conda Setup**: Efficient environment management and build pipelines.
-* **Automated Testing**: Runs training and evaluation on push/pull requests.
-* **Fail-Safe Checks**: Ensures model integrity and performance.
-
----
-
-## 📊 Results
-
-* **Validation RMSE**: 0.88 (example)
-* **Model Persistence**: Trained models saved as `svd_model.pkl`
+* **Automated Workflows**: Runs model training and validation on each push or pull request.
+* **Micromamba/Conda Environment**: Efficient management of Python dependencies and isolated environments.
+* **Quality Checks**: Ensures model stability and performance before merging changes.
 
 ---
 
-## 👤 Author
+## Results
+
+* **Validation RMSE**: 0.88 (example value for demonstration purposes)
+* **Model Output**: Trained model saved as `svd_model.pkl` for reuse.
+
+---
+
+## Author
 
 Pavinee Pattanapornchai
 
 ---
 
-## 🔗 License
+## License
 
 This project is licensed under the MIT License.
