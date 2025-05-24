@@ -1,35 +1,28 @@
-name: Movie Recommendation System Training
+name: Run Movie Recommendation Training
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
+    branches: [main]
 
 jobs:
-  train:
+  build:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-      - name: Set up Miniconda
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          auto-update-conda: true
-          python-version: "3.10"
-          activate-environment: movie-env
-          environment-file: environment.yml
-          auto-activate-base: false
+    - name: Setup Miniconda
+      uses: conda-incubator/setup-miniconda@v3
+      with:
+        auto-update-conda: true
+        python-version: 3.10
+        environment-file: environment.yml
+        activate-environment: movie-env
 
-      - name: Create conda environment manually (if environment.yml not used)
-        run: |
-          conda create -n movie-env python=3.10 -y
-          conda activate movie-env
-          conda install -y numpy=1.24.3 pandas=1.5.3 scikit-learn=1.2.2 -c conda-forge scikit-surprise
-
-      - name: Run Training Script
-        run: |
-          conda activate movie-env
-          python src/recommendation_system.py
+    - name: Run training script
+      shell: cmd /C call {0}
+      run: |
+        python src/recommendation_system.py
