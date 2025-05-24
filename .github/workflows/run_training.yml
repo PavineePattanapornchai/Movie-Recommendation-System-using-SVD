@@ -1,33 +1,33 @@
-name: Run Movie Recommendation Training
+name: Run Training and Validation
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  build:
+  train:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Setup Miniconda with Environment
+    - name: Set up Miniconda
       uses: conda-incubator/setup-miniconda@v2
       with:
-        auto-activate-base: false
-        python-version: 3.10
+        miniforge-variant: Mambaforge
+        python-version: "3.10"
         environment-file: environment.yml
-        activate-environment: movie-env  
-        use-mamba: true  
+        activate-environment: movie-env
+        auto-update-conda: true
+        use-mamba: true
 
-    - name: Verify Environment and Packages
-      run: |
-        conda run -n movie-env python -c "import numpy, pandas, sklearn, surprise; print('All packages loaded successfully!')"
+    - name: Verify Conda Environment
+      run: conda info --envs
+
+    - name: Install additional dependencies (if needed)
+      run: conda list
 
     - name: Run Training Script
-      run: conda run -n movie-env python src/recommendation_system.py
+      run: python src/recommendation_system.py
