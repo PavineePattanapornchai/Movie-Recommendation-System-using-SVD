@@ -9,16 +9,16 @@ This project demonstrates a collaborative filtering-based recommendation system 
 ```
 Movie-Recommendation-SVD
 ├── .github/workflows
-│   └── run_training.yml         # CI/CD pipeline configuration
+│   └── run_training.yml         
 ├── data
-│   ├── movies.csv               # Movie metadata
-│   ├── ratings_train.csv        # Training dataset
-│   └── ratings_valid.csv        # Validation dataset
+│   ├── movies.csv              
+│   ├── ratings_train.csv        
+│   └── ratings_valid.csv        
 ├── src
-│   └── recommendation_system.py # Core recommendation system implementation
-├── .gitignore                   # Git ignore file
-├── requirements.txt             # Python dependencies
-└── environment.yml              # Conda environment configuration
+│   └── recommendation_system.py 
+├── .gitignore                  
+├── requirements.txt             
+└── environment.yml              
 ```
 
 ---
@@ -44,7 +44,7 @@ Movie-Recommendation-SVD
 ### Clone Repository
 
 ```bash
-git clone https://github.com/PavineePattanapornchai/Movie-Recommendation-System-using-SVD.git
+git clone https://github.com/PavineePattanapornchai/MovieRecSystem.git
 cd Movie-Recommendation-System-using-SVD
 ```
 
