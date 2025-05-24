@@ -19,16 +19,13 @@ jobs:
     - name: Setup Miniconda
       uses: conda-incubator/setup-miniconda@v2
       with:
-        environment-file: environment.yml
         auto-activate-base: false
-        activate-environment: movie-env
         python-version: 3.10
 
-    - name: Verify environment
+    - name: Create Conda Environment
       run: |
-        conda info
-        conda list
+        conda env create -f environment.yml || conda env update -f environment.yml
 
-    - name: Run Training Script
+    - name: Activate Conda Environment and Run Training
       run: |
         conda run -n movie-env python src/recommendation_system.py
