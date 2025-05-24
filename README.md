@@ -1,62 +1,95 @@
 # Movie Recommendation System using SVD
 
-## 📚 Overview
-This project presents a **Movie Recommendation System** using the **Singular Value Decomposition (SVD)** approach on the **MovieLens dataset**. The goal is to accurately predict user-movie ratings and improve personalized recommendations.
+A collaborative filtering-based recommendation system built using the MovieLens dataset. This system applies Singular Value Decomposition (SVD) for generating personalized movie recommendations.
 
-## 🎯 Objective
-- Develop a recommendation model leveraging collaborative filtering.
-- Train using `ratings_train.csv` and validate with `ratings_valid.csv`.
-- Utilize `movies.csv` for enriching the data.
-- Evaluate model performance using **Root Mean Square Error (RMSE)**.
+---
 
-## 🏗️ Project Structure
+## 📂 Project Structure
+
 ```
+.
 ├── .github/workflows
-│   └── run_training.yml
+│   └── run_training.yml         # CI/CD pipeline configuration
 ├── data
-│   ├── movies.csv
-│   ├── ratings_train.csv
-│   └── ratings_valid.csv
+│   ├── movies.csv               # Movie metadata
+│   ├── ratings_train.csv        # Training dataset
+│   └── ratings_valid.csv        # Validation dataset
 ├── src
-│   └── recommendation_system.py
-├── .gitignore
-├── requirements.txt
-├── environment.yml
-└── svd_model.pkl
+│   └── recommendation_system.py # Core recommendation system implementation
+├── .gitignore                   # Git ignore file
+├── requirements.txt             # Python dependencies
+└── environment.yml              # Conda environment configuration
 ```
 
-## 🔍 Key Features
-- Collaborative Filtering with **SVD**.
-- Model serialization for efficient reuse.
-- Automated training and validation with GitHub Actions.
-- Professional project structure for scalability.
+---
 
-## 🚀 Setup
+## 🚀 Key Features
+
+* **Collaborative Filtering**: Personalized recommendations using user-movie interactions.
+* **SVD Model**: Efficient and scalable latent factor model.
+* **Validation**: Performance measured by RMSE on validation data.
+* **CI/CD Integration**: Automated testing and deployment via GitHub Actions with Micromamba or Conda.
+* **Modular Code**: Clean architecture for easy maintenance and extensibility.
+
+---
+
+## 📈 Workflow Overview
+
+!\[Data Flow Diagram]\(C:/Users/asus/Downloads/Flow Diagram.png)
+
+---
+
+## 🏗️ Setup Instructions
+
+### 1️⃣ Clone Repository
+
 ```bash
-# Clone repository
 git clone https://github.com/PavineePattanapornchai/Movie-Recommendation-System-using-SVD.git
 cd Movie-Recommendation-System-using-SVD
+```
 
-# Create conda environment
+### 2️⃣ Setup Conda Environment
+
+```bash
 conda env create -f environment.yml
 conda activate movie-env
+```
 
-# Run training script
+### 3️⃣ Install Dependencies (Optional: if using pip)
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4️⃣ Train Model Locally
+
+```bash
 python src/recommendation_system.py
 ```
 
-## 📈 Evaluation
-- RMSE on validation set is displayed after training.
-- Model is saved as `svd_model.pkl`.
+---
 
-## 📂 Workflow Automation
-- **GitHub Actions** automates training on every push.
+## 🔁 CI/CD with GitHub Actions
 
-## 🗺️ Data Flow Diagram
-![Data Flow Diagram](C:/Users/asus/Downloads/Flow Diagram.png)
+* **Micromamba/Conda Setup**: Efficient environment management and build pipelines.
+* **Automated Testing**: Runs training and evaluation on push/pull requests.
+* **Fail-Safe Checks**: Ensures model integrity and performance.
 
-## 👩‍💻 Author
-- **Pavinee Pattanapornchai**
+---
 
-## 📬 Contact
-For inquiries or collaborations, please reach out via [GitHub](https://github.com/PavineePattanapornchai).
+## 📊 Results
+
+* **Validation RMSE**: 0.88 (example)
+* **Model Persistence**: Trained models saved as `svd_model.pkl`
+
+---
+
+## 👤 Author
+
+Pavinee Pattanapornchai
+
+---
+
+## 🔗 License
+
+This project is licensed under the MIT License.
