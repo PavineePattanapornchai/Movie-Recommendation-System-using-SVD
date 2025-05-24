@@ -35,7 +35,7 @@ A collaborative filtering-based recommendation system built using the MovieLens 
 
 ## 📈 Workflow Overview
 
-!\[Data Flow Diagram]\(C:/Users/asus/Downloads/Flow Diagram.png)
+![Flow Diagram](images/Flow%20Diagram.png)
 
 ---
 
